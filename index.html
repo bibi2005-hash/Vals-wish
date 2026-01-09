@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A special Valentine's Day website to express love">
+    <title>My Valentine ❤️ | A Special Message</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-heart">
+                <i class="fas fa-heart"></i>
+            </div>
+            <p>Preparing something special for you...</p>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="loading-percentage" id="loadingPercentage">0%</p>
+        </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <button id="musicToggle" class="music-btn" aria-label="Play background music">
+            <i class="fas fa-music"></i>
+            <span class="music-status">Music</span>
+        </button>
+        <div class="volume-control">
+            <i class="fas fa-volume-down volume-icon"></i>
+            <input type="range" id="volumeSlider" min="0" max="100" value="50" aria-label="Volume control">
+            <i class="fas fa-volume-up volume-icon"></i>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <canvas id="heartsCanvas" class="hearts-canvas"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-title" id="heroTitle"></h1>
+            <div class="heart-icon animated-heart">
+                <i class="fas fa-heart"></i>
+            </div>
+            <p class="hero-subtitle" id="heroSubtitle"></p>
+            
+            <div class="button-container">
+                <button id="yesBtn" class="btn btn-yes pulse">
+                    <i class="fas fa-heart"></i> Yes, Forever!
+                </button>
+                <button id="noBtn" class="btn btn-no">
+                    <i class="fas fa-heart-broken"></i> Maybe Later
+                </button>
+            </div>
+            
+            <div class="scroll-indicator bounce" id="scrollIndicator">
+                <i class="fas fa-chevron-down"></i>
+                <span>Scroll for more</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memories Section -->
+    <section class="memories-section" id="memories">
+        <div class="section-header">
+            <h2><i class="fas fa-images"></i>Najwan Adams</h2>
+            <p class="section-subtitle">Every moment with you is precious</p>
+        </div>
+        
+        <div class="slideshow-container">
+            <div class="slideshow-track" id="slideshowTrack"></div>
+            
+            <div class="slideshow-controls">
+                <button class="slide-control prev-slide" id="prevSlide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slideshow-info">
+                    <span class="slide-counter" id="slideCounter"></span>
+                    <div class="slide-indicators" id="slideIndicators"></div>
+                    <button class="play-pause-btn" id="playPauseBtn" aria-label="Pause slideshow">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                </div>
+                <button class="slide-control next-slide" id="nextSlide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="slideshow-timer">
+            <div class="timer-bar" id="timerBar"></div>
+        </div>
+    </section>
+
+    <!-- Video Message Section -->
+    <section class="video-section" id="video">
+        <div class="section-header">
+            <h2><i class="fas fa-video"></i>😍🥰🥰🥰🥰😘🤗💗</h2>
+            <p class="section-subtitle" id="videoCaption">My love</p>
+        </div>
+        
+        <div class="video-container">
+            <div class="video-wrapper" id="videoWrapper">
+                <video class="love-video" id="loveVideo" preload="metadata" playsinline>
+                    <!-- Video source will be set by JavaScript -->
+                    Your browser does not support HTML5 video.
+                </video>
+                <div class="video-overlay">
+                    <button class="play-video-btn pulse" id="playVideoBtn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <p><i class="fas fa-heart"></i></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="video-captions">
+            <div class="caption-item active">
+                <i class="fas fa-quote-left"></i>
+                <p class="caption-text">"Every moment with you is a treasure"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Message (Initially Hidden) -->
+    <section class="message-section" id="messageSection">
+        <div class="message-container">
+            <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+            <div class="message-content">
+                <div class="heart-burst">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h2 class="message-title" id="finalMessage">You Said Yes! ❤️</h2>
+                <div class="message-text-container">
+                    <p class="message-text">
+                        <i class="fas fa-quote-left"></i>
+                        Happy Valentine's Day, my love! You've filled my life with joy, laughter, and endless happiness. 
+                        Every day with you feels like a beautiful dream come true.
+                        <i class="fas fa-quote-right"></i>
+                    </p>
+                    <p class="promise-text">
+                        <i class="fas fa-star"></i>
+                        I promise to cherish you, support you, and love you more with each passing day.
+                    </p>
+                </div>
+                <p class="message-quote" id="loveQuote"></p>
+                <div class="signature">
+                    <div class="signature-line"></div>
+                    <p class="signature-text">Forever yours,</p>
+                    <p class="signature-name" id="signatureName"></p>
+                    <div class="signature-date" id="signatureDate"></div>
+                </div>
+                <div class="message-actions">
+                    <button class="btn btn-yes" id="backToTop">
+                        <i class="fas fa-redo"></i> Experience Again
+                    </button>
+                    <button class="btn btn-share" id="shareBtn">
+                        <i class="fas fa-share-alt"></i> Share Love
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-video-container">
+                <video class="fullscreen-video" id="fullscreenVideo" controls>
+                    <!-- Video source will be set by JavaScript -->
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Hearts Container -->
+    <div id="floatingHearts"></div>
+
+    <!-- JavaScript -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
