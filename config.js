@@ -6,9 +6,9 @@
 const CONFIG = {
     // Personal Information
     names: {
-        yourName: "Alex",
-        partnerName: "Taylor",
-        signature: "Alex ❤️"
+        yourName: "Bibi",
+        partnerName: "Najwan",
+        signature: "Bibi ❤️"
     },
     
     // Hero Section
@@ -47,25 +47,25 @@ const CONFIG = {
     memories: [
         {
             image: "asserts/images/najwan1.jpg.jpeg",
-            title: "Our First Meeting",
+            title: "",
             date: "",
             description: ""
         },
         {
             image: "asserts/images/najwan2.jpg.jpeg",
-            title: "First Date",
+            title: "",
             date: "",
             description: ""
         },
         {
             image: " asserts/images/najwan3.jpg.jpeg",
-            title: "Beach Sunset",
+            title: "",
             date: "",
             description: ""
         },
         {
             image: "asserts/images/najwan4.jpg.jpeg",
-            title: "Birthday Celebration",
+            title: "",
             date: "",
             description: ""
         },
